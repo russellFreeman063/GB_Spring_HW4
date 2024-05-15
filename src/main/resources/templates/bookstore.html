@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Store</title>
+</head>
+<body style="margin: 0; padding: 0;">
+    <header style="display: flex; justify-content: center; height: 75px;">
+        <h1 class="title">BOOK STORE</h1>
+    </header>
+    <section style="display: flex;
+    justify-content: center;">
+        <table class="books-table">
+            <tr>
+                <th>Название</th>
+                <th>Автор</th>
+                <th>Количество</th>
+            </tr>
+            <tr th:each="b : ${books}" >
+                <td th:text="${b.name}"></td>
+                <td th:text="${b.author}"></td>
+                <td th:text="${b.quantity}"></td>
+            </tr>
+        </table>
+    </section>
+    <section style="display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding-top: 30px;">
+        <h2>Добавить книгу</h2>
+        <form action="/bookstore" method="post">
+            Название: <input type="text" name="name"><br />
+            Автор: <input type="text" name="author"><br />
+            Количество: <input type="number" name="quantity"><br />
+            <button type="submit">Добавить Книгу</button>
+        </form>
+    </section>
+</body>
+</html>
